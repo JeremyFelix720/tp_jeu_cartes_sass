@@ -8,42 +8,52 @@
 
 $cardFrame: solid 1px #777;
 
+$cardWidth: 80px;
+$cardHeight: 125px;
+
+$cardExteriorMargin: $cardHeight/20;
+$cardExteriorRadius: $cardWidth/10;
+
+$cardInteriorPadding: $cardHeight/30;
+$cardInteriorRadius: $cardHeight/25;
+
+$signatureWidth: $cardHeight/10;
+
 .playZone__card {
-    width: 100px;
-    height: 150px;
-    padding: 8px;
+    width: $cardWidth;
+    height: $cardHeight;
     border: $cardFrame;
-    border-radius: 10px;
+    border-radius: $cardExteriorRadius;
     background-color: white;
     transform: rotate(random() * 360deg); // nombre aléatoire de 0 à 360.
 
     .card__frame { // nesting.
         @include flex();
-        height: 138px;
-        padding: 5px;
+        min-height: $cardHeight - 3.5 * $cardExteriorMargin;
+        margin: $cardExteriorMargin;
+        padding: $cardInteriorPadding;
         border: $cardFrame;
-        border-radius: 7px;
+        border-radius: $cardInteriorRadius;
 
         .frame__signature {
             @include flex();
-            width: 15px;
+            width: $signatureWidth;
 
             .signature__number {
-                font-size: 15px;
+                font-size: $signatureWidth;
                 font-weight: bold;
                 text-align: center;
                 margin: 0px;
             }
 
             .signature__icon {
-                font-size: 15px;
+                font-size: $signatureWidth;
             }
         }
 
         .frame__icon{
-            width: 40px;
+            width: $signatureWidth * 2;
             align-self: center;
-            font-size: 40px;
         }
 
         .frame__rotate {
