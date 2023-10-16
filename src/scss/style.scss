@@ -101,6 +101,20 @@ button:focus-visible {
 
 /* CSS PERSO */
 
+@use "_cartes.scss";
+
+$backgroudScreenColor: #279527; // variable réutilisable.
+
 body {
-  background-color: green;
+  background-color: $backgroudScreenColor;
+}
+
+#playZone {
+  width: 800px;
+  height: 600px;
+  margin: auto;
+  padding: 50px;
+  border: solid white 2px;
+  border-radius: 20px;
+  background-color: lighten($color: $backgroudScreenColor, $amount: 7); // lighten permet d'éclaircir une couleur existante.
 }

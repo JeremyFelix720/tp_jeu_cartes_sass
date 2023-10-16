@@ -1,0 +1,54 @@
+
+@mixin flex(){
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+$cardFrame: solid 1px #777;
+
+.playZone__card {
+    width: 100px;
+    height: 150px;
+    padding: 8px;
+    border: $cardFrame;
+    border-radius: 10px;
+    background-color: white;
+
+    .card__frame { // nesting.
+        @include flex();
+        height: 138px;
+        padding: 5px;
+        border: $cardFrame;
+        border-radius: 7px;
+
+        .frame__signature {
+            @include flex();
+            width: 15px;
+
+            .signature__number {
+                font-size: 15px;
+                font-weight: bold;
+                text-align: center;
+                margin: 0px;
+            }
+
+            .signature__icon {
+                font-size: 15px;
+            }
+        }
+
+        .frame__icon{
+            width: 40px;
+            align-self: center;
+            font-size: 40px;
+        }
+
+        .frame__rotate {
+            transform: rotate(180deg);
+            align-self: flex-end;
+        }
+    }
+}
+
+

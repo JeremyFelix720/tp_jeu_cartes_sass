@@ -31,7 +31,7 @@ Un tuto vous sera fait mais le but est de vous laisser chercher dans un premier 
 
 Au moins 1 commit par étape !
 
-### 1. Clean de l'app
+### 1. Clean de l'app [OK]
 
 Supprimez le contenu du fichier `main.ts`.
 Renommez le fichier `style.css` en `style.scss` et supprimez son contenu.
