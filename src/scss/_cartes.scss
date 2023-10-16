@@ -1,3 +1,4 @@
+@use 'sass:math';
 
 @mixin flex(){
     display: flex;
@@ -14,6 +15,7 @@ $cardFrame: solid 1px #777;
     border: $cardFrame;
     border-radius: 10px;
     background-color: white;
+    transform: rotate(random() * 360deg); // nombre aléatoire de 0 à 360.
 
     .card__frame { // nesting.
         @include flex();

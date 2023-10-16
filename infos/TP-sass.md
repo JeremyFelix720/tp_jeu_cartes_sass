@@ -69,6 +69,9 @@ https://sass-lang.com/documentation/modules/math#random
 
 Quand est-ce que la valeur change ?
 
+La valeur du random change au moment de la compilation du code SASS. Mais il serait plus adapté d'utiliser JavaScript (au chargement de la page) pour ajouter du dynamisme aux éléments du DOM.
+
+
 ### 5. Modifiez la taille de la carte à 80px par 125px
 
 Changer la taille de la carte. Maintenant que vous avez fait toutes les modifications sur la carte.
