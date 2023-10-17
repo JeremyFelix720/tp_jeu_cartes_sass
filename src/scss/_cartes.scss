@@ -1,31 +1,47 @@
 @use 'sass:math';
 
+$cardFrame: solid 1px #777;
+
+$cardWidth: 80px;
+$cardHeight: 125px;
+
+$cardExteriorMargin: math.div($cardHeight, 20); // division.
+$cardExteriorRadius: math.div($cardHeight, 10);
+
+$cardInteriorPadding: math.div($cardHeight, 30);
+$cardInteriorRadius: math.div($cardHeight, 25);
+
+$signatureWidth: math.div($cardHeight, 10);
+
+$gap: 43px;
+$zIndex: 0;
+
+$numberOfCards:5;
+
 @mixin flex(){
     display: flex;
     flex-direction: column;
     justify-content: space-between;
 }
 
-$cardFrame: solid 1px #777;
+@mixin generate-cards($numberOfCards, $gap) {
+    @for $i from 1 through $numberOfCards {
+      #card_#{$i} {
+        top: 50 + $gap * ($i - 1);
+      }
+    }
+  }
 
-$cardWidth: 80px;
-$cardHeight: 125px;
-
-$cardExteriorMargin: $cardHeight/20;
-$cardExteriorRadius: $cardWidth/10;
-
-$cardInteriorPadding: $cardHeight/30;
-$cardInteriorRadius: $cardHeight/25;
-
-$signatureWidth: $cardHeight/10;
+@include generate-cards($numberOfCards, $gap);
 
 .playZone__card {
+    position: absolute;
     width: $cardWidth;
     height: $cardHeight;
     border: $cardFrame;
     border-radius: $cardExteriorRadius;
     background-color: white;
-    transform: rotate(random() * 360deg); // nombre aléatoire de 0 à 360.
+    //transform: rotate(random() * 360deg); // nombre aléatoire de 0 à 360.
 
     .card__frame { // nesting.
         @include flex();
