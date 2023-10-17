@@ -13,10 +13,11 @@ $cardInteriorRadius: math.div($cardHeight, 25);
 
 $signatureWidth: math.div($cardHeight, 10);
 
-$gap: 43px;
+$stackTopGap: 43px;
+
 $zIndex: 0;
 
-$numberOfCards:5;
+$numberOfCards:6;
 
 @mixin flex(){
     display: flex;
@@ -24,15 +25,43 @@ $numberOfCards:5;
     justify-content: space-between;
 }
 
-@mixin generate-cards($numberOfCards, $gap) {
+
+@mixin stackCards($numberOfCards, $stackTopGap) {
     @for $i from 1 through $numberOfCards {
       #card_#{$i} {
-        top: 50 + $gap * ($i - 1);
+        top: 50 + $stackTopGap * ($i - 1);
       }
     }
   }
 
-@include generate-cards($numberOfCards, $gap);
+//@include stackCards($numberOfCards, $stackTopGap);
+
+
+$handLeftGap: 0px;
+$handTopGap: 0px;
+
+@mixin handCards($handLeftGap, $handTopGap, $numberOfCards: 6) {
+    $degree: -$numberOfCards * 8;
+
+    @for $i from 1 through $numberOfCards {
+      #card_#{$i} {
+        $handLeftGap: $handLeftGap + 2.4* $numberOfCards;
+        $degree: $degree + 2.7* $numberOfCards;
+
+        left: 50px + $handLeftGap;
+        @if $i < 3 {
+            top: 50px + ($numberOfCards - $i) * 7;
+        } @else {
+            top: 50px + $i * 9;
+        }
+        transform: rotate($degree * 1deg);
+        //$handTopGap: $handTopGap - 2px;
+      }
+    }
+}
+
+@include handCards($handLeftGap, $handTopGap);
+
 
 .playZone__card {
     position: absolute;
