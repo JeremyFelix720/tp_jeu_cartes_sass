@@ -103,6 +103,11 @@ button:focus-visible {
 
 @use "_cartes.scss";
 
+
+$playZoneWidth: 800px;
+$playZoneHeight: 600px;
+
+
 $backgroudScreenColor: #279527; // variable réutilisable.
 
 body {

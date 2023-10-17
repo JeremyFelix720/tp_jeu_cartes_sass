@@ -1,4 +1,5 @@
 @use 'sass:math';
+//@use "style.scss";
 
 $cardFrame: solid 1px #777;
 
@@ -61,6 +62,20 @@ $handTopGap: 0px;
 }
 
 @include handCards($handLeftGap, $handTopGap);
+
+
+@mixin discardedCards($playZoneWidth:800px, $playZoneHeight:600px, $numberOfCards: 3){
+    @for $i from 7 through $numberOfCards + 6 {
+        #card_#{$i} {
+            left: random() * $playZoneWidth; // nombre aléatoire entre 0 et 800.
+            top: random() * $playZoneHeight; // nombre aléatoire entre 0 et 600.
+            transform: rotate(random() * 360deg); // nombre aléatoire de 0 à 360.
+        }
+    }
+}
+
+@include discardedCards();
+
 
 
 .playZone__card {
